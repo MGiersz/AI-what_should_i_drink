@@ -1,0 +1,619 @@
+package com.sample
+ 
+import java.util.ArrayList;
+
+declare Question
+	question: String
+	respwers: ArrayList
+	result: String
+end
+
+rule "Init"
+	when
+	then
+		ArrayList<String> options = new ArrayList();
+		options.add("Yes");
+		options.add("No");
+		String question = "Are you in Mexico?(or in a Mexican restaurant)";
+		GuiClass p1 = new GuiClass(question, options);
+		String resp = p1.gui();
+		insert(new Question(question, options, resp));
+end;
+
+rule "Are you in Mexico - Yes"
+    when
+        exists Question(question == "Are you in Mexico?(or in a Mexican restaurant)", result == "Yes")
+    then
+        String[] pictures = {"1"};
+        new GuiClass("", new ArrayList<String>()).showResult(pictures); 
+end;
+// ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+rule "PwN n0oBs"
+	when
+		exists Question(question == "Are you in Mexico?(or in a Mexican restaurant)", result == "No");	
+	then
+		ArrayList<String> options = new ArrayList();
+		options.add("Yes");
+		options.add("No");
+		String question = "Do you PwN n0obs?"; 
+		GuiClass p1 = new GuiClass(question, options);
+		String resp = p1.gui();
+		insert(new Question(question, options, resp));
+end;
+
+rule "PwN n0obs - Yes"
+    when
+        exists Question(question == "Do you PwN n0obs?", result == "Yes")
+    then
+        String[] pictures = {"2", "3", "4", "5"};
+        new GuiClass("", new ArrayList<String>()).showResult(pictures); 
+end;
+
+// ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+rule "Diet"
+	when
+		exists Question(question == "Do you PwN n0obs?", result == "No")
+	then
+		ArrayList<String> options = new ArrayList();
+		options.add("Yes");
+		options.add("No");
+		String question = "Are you on a diet?";
+		GuiClass p1 = new GuiClass(question, options);
+		String resp = p1.gui();
+		insert(new Question(question, options, resp));
+end;
+
+//---------------------------------------------------------------------------------
+rule "Ostentatious"
+	when
+		exists Question(question == "Are you on a diet?", result == "Yes")
+	then
+		ArrayList<String> options = new ArrayList();
+		options.add("Yes");
+		options.add("No");
+		String question = "Are you ostentatious?";
+		GuiClass p1 = new GuiClass(question, options);
+		String resp = p1.gui();
+		insert(new Question(question, options, resp));
+end;
+
+rule "Are you ostentatious? - Yes"
+    when
+        exists Question(question == "Are you ostentatious?", result == "Yes")
+    then
+        String[] pictures = {"6", "7", "8", "9"};
+        new GuiClass("", new ArrayList<String>()).showResult(pictures); 
+end;
+//---------------------------------------------------------------------------------
+rule "Boost"
+	when
+		exists Question(question == "Are you ostentatious?", result == "No")
+	then
+		ArrayList<String> options = new ArrayList();
+		options.add("Yes");
+		options.add("No");
+		String question = "Do you need a boost?";
+		GuiClass p1 = new GuiClass(question, options);
+		String resp = p1.gui();
+		insert(new Question(question, options, resp));
+end;
+
+rule "Do you need a boost? - Yes"
+    when
+        exists Question(question == "Do you need a boost?", result == "Yes")
+    then
+        String[] pictures = {"20", "21", "22", "23", "24"};
+        new GuiClass("", new ArrayList<String>()).showResult(pictures); 
+end;
+
+rule "Do you need a boost? - No"
+    when
+        exists Question(question == "Do you need a boost?", result == "No")
+    then
+        String[] pictures = {"13", "14", "15", "16", "17"};
+        new GuiClass("", new ArrayList<String>()).showResult(pictures); 
+end;
+//---------------------------------------------------------------------------------
+rule "Animated"
+	when
+		exists Question(question == "Are you on a diet?", result == "No")
+	then
+		ArrayList<String> options = new ArrayList();
+		options.add("Yes");
+		options.add("No");
+		String question = "Are you animated?";
+		GuiClass p1 = new GuiClass(question, options);
+		String resp = p1.gui();
+		insert(new Question(question, options, resp));
+end;
+
+rule "Are you animated- Yes"
+    when
+        exists Question(question == "Are you animated?", result == "Yes")
+    then
+        String[] pictures = {"10", "11", "12"};
+        new GuiClass("", new ArrayList<String>()).showResult(pictures); 
+end;
+//---------------------------------------------------------------------------------
+rule "Juggalo"
+	when
+		exists Question(question == "Are you animated?", result == "No")
+	then
+		ArrayList<String> options = new ArrayList();
+		options.add("Yes");
+		options.add("No");
+		String question = "Are you a juggalo?";
+		GuiClass p1 = new GuiClass(question, options);
+		String resp = p1.gui();
+		insert(new Question(question, options, resp));
+end;
+
+rule "Are you a juggalo?- Yes"
+    when
+        exists Question(question == "Are you a juggalo?", result == "Yes")
+    then
+        String[] pictures = {"18"};
+        new GuiClass("", new ArrayList<String>()).showResult(pictures); 
+end;
+//---------------------------------------------------------------------------------
+rule "Aftertaste of dirt"
+	when
+		exists Question(question == "Are you a juggalo?", result == "No")
+	then
+		ArrayList<String> options = new ArrayList();
+		options.add("Yes");
+		options.add("No");
+		String question = "Do you like the arftertaste of dirt?";
+		GuiClass p1 = new GuiClass(question, options);
+		String resp = p1.gui();
+		insert(new Question(question, options, resp));
+end;
+
+rule "Do you like the arftertaste of dirt?- Yes"
+    when
+        exists Question(question == "Do you like the arftertaste of dirt?", result == "Yes")
+    then
+        String[] pictures = {"19"};
+        new GuiClass("", new ArrayList<String>()).showResult(pictures); 
+end;
+//---------------------------------------------------------------------------------
+rule "Tay Zonday"
+	when
+		exists Question(question == "Do you like the arftertaste of dirt?", result == "No")
+	then
+		ArrayList<String> options = new ArrayList();
+		options.add("Yes");
+		options.add("No");
+		String question = "Are you Tay Zonday?";
+		GuiClass p1 = new GuiClass(question, options);
+		String resp = p1.gui();
+		insert(new Question(question, options, resp));
+end;
+
+rule "Are you Tay Zonday?- Yes"
+    when
+        exists Question(question == "Are you Tay Zonday?", result == "Yes")
+    then
+        String[] pictures = {"26"};
+        new GuiClass("", new ArrayList<String>()).showResult(pictures); 
+end;
+//---------------------------------------------------------------------------------
+rule "Brazil"
+	when
+		exists Question(question == "Are you Tay Zonday?", result == "No")
+	then
+		ArrayList<String> options = new ArrayList();
+		options.add("Yes");
+		options.add("No");
+		String question = "Are you in Brazil?";
+		GuiClass p1 = new GuiClass(question, options);
+		String resp = p1.gui();
+		insert(new Question(question, options, resp));
+end;
+
+rule "Are you in Brazil?- Yes"
+    when
+        exists Question(question == "Are you in Brazil?", result == "Yes")
+    then
+        String[] pictures = {"25"};
+        new GuiClass("", new ArrayList<String>()).showResult(pictures); 
+end;
+//--------------------------------------------------------------------------
+rule "Dole"
+	when
+		exists Question(question == "Are you in Brazil?", result == "No")
+	then
+		ArrayList<String> options = new ArrayList();
+		options.add("Yes");
+		options.add("No");
+		String question = "Are you on the dole?";
+		GuiClass p1 = new GuiClass(question, options);
+		String resp = p1.gui();
+		insert(new Question(question, options, resp));
+end;
+
+rule "Are you on the dole?- Yes"
+    when
+        exists Question(question == "Are you on the dole?", result == "Yes")
+    then
+        String[] pictures = {"27"};
+        new GuiClass("", new ArrayList<String>()).showResult(pictures); 
+end;
+//--------------------------------------------------------------------------
+rule "Flux capacitor"
+	when
+		exists Question(question == "Are you on the dole?", result == "No")
+	then
+		ArrayList<String> options = new ArrayList();
+		options.add("Yes");
+		options.add("No");
+		String question = "Have you the flux capacitor?";
+		GuiClass p1 = new GuiClass(question, options);
+		String resp = p1.gui();
+		insert(new Question(question, options, resp));
+end;
+
+rule "Have you the flux capacitor?- Yes"
+    when
+        exists Question(question == "Have you the flux capacitor?", result == "Yes")
+    then
+        String[] pictures = {"28", "29", "30","31"};
+        new GuiClass("", new ArrayList<String>()).showResult(pictures); 
+end;
+//--------------------------------------------------------------------------
+rule "Bubble gum"
+	when
+		exists Question(question == "Have you the flux capacitor?", result == "No")
+	then
+		ArrayList<String> options = new ArrayList();
+		options.add("Yes");
+		options.add("No");
+		String question = "Do you like drinking bubble gum?";
+		GuiClass p1 = new GuiClass(question, options);
+		String resp = p1.gui();
+		insert(new Question(question, options, resp));
+end;
+
+rule "Do you like drinking bubble gum?- Yes"
+    when
+        exists Question(question == "Do you like drinking bubble gum?", result == "Yes")
+    then
+        String[] pictures = {"36"};
+        new GuiClass("", new ArrayList<String>()).showResult(pictures); 
+end;
+//--------------------------------------------------------------------------
+rule "All-nighter"
+	when
+		exists Question(question == "Do you like drinking bubble gum?", result == "No")
+	then
+		ArrayList<String> options = new ArrayList();
+		options.add("Yes");
+		options.add("No");
+		String question = "Are you pulling an all-nighter?";
+		GuiClass p1 = new GuiClass(question, options);
+		String resp = p1.gui();
+		insert(new Question(question, options, resp));
+end;
+
+rule "Are you pulling an all-nighter?- Yes"
+    when
+        exists Question(question == "Are you pulling an all-nighter?", result == "Yes")
+    then
+        String[] pictures = {"32","33","34","35"};
+        new GuiClass("", new ArrayList<String>()).showResult(pictures); 
+end;
+//--------------------------------------------------------------------------
+rule "Tesco"
+	when
+		exists Question(question == "Are you pulling an all-nighter?", result == "No")
+	then
+		ArrayList<String> options = new ArrayList();
+		options.add("Yes");
+		options.add("No");
+		String question = "Are you shopping at Tesco?";
+		GuiClass p1 = new GuiClass(question, options);
+		String resp = p1.gui();
+		insert(new Question(question, options, resp));
+end;
+
+rule "Are you shopping at Tesco?- Yes"
+    when
+        exists Question(question == "Are you shopping at Tesco?", result == "Yes")
+    then
+        String[] pictures = {"37"};
+        new GuiClass("", new ArrayList<String>()).showResult(pictures); 
+end;
+//--------------------------------------------------------------------------
+rule "Picnic"
+	when
+		exists Question(question == "Are you shopping at Tesco?", result == "No")
+	then
+		ArrayList<String> options = new ArrayList();
+		options.add("Yes");
+		options.add("No");
+		String question = "Are you at a picnic?";
+		GuiClass p1 = new GuiClass(question, options);
+		String resp = p1.gui();
+		insert(new Question(question, options, resp));
+end;
+
+rule "Are you at a picnic?- Yes"
+    when
+        exists Question(question == "Are you at a picnic?", result == "Yes")
+    then
+        String[] pictures = {"38","39","40","41"};
+        new GuiClass("", new ArrayList<String>()).showResult(pictures); 
+end;
+//--------------------------------------------------------------------------
+rule "Any of these"
+	when
+		exists Question(question == "Are you at a picnic?", result == "No")
+	then
+		ArrayList<String> options = new ArrayList();
+		options.add("Yes");
+		options.add("No");
+		String question = "Can you buy any of these?";
+		GuiClass p1 = new GuiClass(question, options);
+		String resp = p1.gui();
+		insert(new Question(question, options, resp));
+end;
+
+rule "Can you buy any of these?- Yes"
+    when
+        exists Question(question == "Can you buy any of these?", result == "Yes")
+    then
+        String[] pictures = {"42","43","44","45","46"};
+        new GuiClass("", new ArrayList<String>()).showResult(pictures); 
+end;
+//--------------------------------------------------------------------------
+rule "Tyler Perry movies"
+	when
+		exists Question(question == "Can you buy any of these?", result == "No")
+	then
+		ArrayList<String> options = new ArrayList();
+		options.add("Yes");
+		options.add("No");
+		String question = "Do you like Tyler Perry movies?";
+		GuiClass p1 = new GuiClass(question, options);
+		String resp = p1.gui();
+		insert(new Question(question, options, resp));
+end;
+
+rule "Do you like Tyler Perry movies?- Yes"
+    when
+        exists Question(question == "Do you like Tyler Perry movies?", result == "Yes")
+    then
+        String[] pictures = {"47","48","49","50","51","52"};
+        new GuiClass("", new ArrayList<String>()).showResult(pictures); 
+end;
+//--------------------------------------------------------------------------
+rule "Root Beer"
+	when
+		exists Question(question == "Do you like Tyler Perry movies?", result == "No")
+	then
+		ArrayList<String> options = new ArrayList();
+		options.add("Yes");
+		options.add("No");
+		String question = "Do you want root beer?";
+		GuiClass p1 = new GuiClass(question, options);
+		String resp = p1.gui();
+		insert(new Question(question, options, resp));
+end;
+
+
+//--------------------------------------------------------------------------
+rule "Tummy ache"
+	when
+		exists Question(question == "Do you want root beer?", result == "No")
+	then
+		ArrayList<String> options = new ArrayList();
+		options.add("Yes");
+		options.add("No");
+		String question = "Do you have a tummy ache?(...or are you trying to be classy)";
+		GuiClass p1 = new GuiClass(question, options);
+		String resp = p1.gui();
+		insert(new Question(question, options, resp));
+end;
+
+rule "Do you have a tummy ache?(...or are you trying to be classy)- Yes"
+    when
+        exists Question(question == "Do you have a tummy ache?(...or are you trying to be classy)", result == "Yes")
+    then
+        String[] pictures = {"55","56","57","58","59"};
+        new GuiClass("", new ArrayList<String>()).showResult(pictures); 
+end;
+//--------------------------------------------------------------------------
+rule "Quality"
+	when
+		exists Question(question == "Do you want root beer?", result == "Yes")
+	then
+		ArrayList<String> options = new ArrayList();
+		options.add("Yes");
+		options.add("No");
+		String question = "Do you care about quality?";
+		GuiClass p1 = new GuiClass(question, options);
+		String resp = p1.gui();
+		insert(new Question(question, options, resp));
+end;
+
+rule "Do you care about quality?- No"
+    when
+        exists Question(question == "Do you care about quality?", result == "No")
+    then
+        String[] pictures = {"53","54","60"};
+        new GuiClass("", new ArrayList<String>()).showResult(pictures); 
+end;
+
+rule "Do you care about quality?- Yes"
+    when
+        exists Question(question == "Do you care about quality?", result == "Yes")
+    then
+        String[] pictures = {"61", "62", "63", "64", "65", "66"};
+        new GuiClass("", new ArrayList<String>()).showResult(pictures); 
+end;
+//--------------------------------------------------------------------------
+rule "HFCS"
+	when
+		exists Question(question == "Do you have a tummy ache?(...or are you trying to be classy)", result == "No")
+	then
+		ArrayList<String> options = new ArrayList();
+		options.add("Yes");
+		options.add("No");
+		String question = "Do you care about HFCS?";
+		GuiClass p1 = new GuiClass(question, options);
+		String resp = p1.gui();
+		insert(new Question(question, options, resp));
+end;
+
+
+//--------------------------------------------------------------------------
+rule "And taste"
+	when
+		exists Question(question == "Do you care about HFCS?", result == "Yes")
+	then
+		ArrayList<String> options = new ArrayList();
+		options.add("Yes");
+		options.add("No");
+		String question = "...and taste?";
+		GuiClass p1 = new GuiClass(question, options);
+		String resp = p1.gui();
+		insert(new Question(question, options, resp));
+end;
+
+rule "...and taste?- No"
+    when
+        exists Question(question == "...and taste?", result == "No")
+    then
+        String[] pictures = {"67","68","69"};
+        new GuiClass("", new ArrayList<String>()).showResult(pictures); 
+end;
+
+rule "...and taste?- Yes"
+    when
+        exists Question(question == "...and taste?", result == "Yes")
+    then
+        String[] pictures = {"70","71","72"};
+        new GuiClass("", new ArrayList<String>()).showResult(pictures); 
+end;
+
+
+//--------------------------------------------------------------------------
+rule "Cherry"
+	when
+		exists Question(question == "Do you care about HFCS?", result == "No")
+	then
+		ArrayList<String> options = new ArrayList();
+		options.add("Yes");
+		options.add("No");
+		String question = "Do you enjoy 'cherry' with your bevarage?";
+		GuiClass p1 = new GuiClass(question, options);
+		String resp = p1.gui();
+		insert(new Question(question, options, resp));
+end;
+
+rule "Do you enjoy 'cherry' with your bevarage?- Yes"
+    when
+        exists Question(question == "Do you enjoy 'cherry' with your bevarage?", result == "Yes")
+    then
+        String[] pictures = {"74","75","76","77"};
+        new GuiClass("", new ArrayList<String>()).showResult(pictures); 
+end;
+
+//--------------------------------------------------------------------------
+rule "Caffeine"
+	when
+		exists Question(question == "Do you enjoy 'cherry' with your bevarage?", result == "No")
+	then
+		ArrayList<String> options = new ArrayList();
+		options.add("Yes");
+		options.add("No");
+		String question = "Can you tolerate caffeine?";
+		GuiClass p1 = new GuiClass(question, options);
+		String resp = p1.gui();
+		insert(new Question(question, options, resp));
+end;
+
+rule "Can you tolerate caffeine?- Yes"
+    when
+        exists Question(question == "Can you tolerate caffeine?", result == "No")
+    then
+        String[] pictures = {"82","83","84","85","86"};
+        new GuiClass("", new ArrayList<String>()).showResult(pictures); 
+end;
+//--------------------------------------------------------------------------
+rule "Backpack"
+	when
+		exists Question(question == "Can you tolerate caffeine?", result == "Yes")
+	then
+		ArrayList<String> options = new ArrayList();
+		options.add("Yes");
+		options.add("No");
+		String question = "Do you carry a backpack?";
+		GuiClass p1 = new GuiClass(question, options);
+		String resp = p1.gui();
+		insert(new Question(question, options, resp));
+end;
+
+rule "Do you carry a backpack?- Yes"
+    when
+        exists Question(question == "Do you carry a backpack?", result == "Yes")
+    then
+        String[] pictures = {"78","79","80","81"};
+        new GuiClass("", new ArrayList<String>()).showResult(pictures); 
+end;
+//--------------------------------------------------------------------------
+rule "Tastebuds sing"
+	when
+		exists Question(question == "Do you carry a backpack?", result == "No")
+	then
+		ArrayList<String> options = new ArrayList();
+		options.add("Yes");
+		options.add("No");
+		String question = "Do you want your tastebuds to sing?";
+		GuiClass p1 = new GuiClass(question, options);
+		String resp = p1.gui();
+		insert(new Question(question, options, resp));
+end;
+
+rule "Do you want your tastebuds to sing?- Yes"
+    when
+        exists Question(question == "Do you want your tastebuds to sing?", result == "Yes")
+    then
+        String[] pictures = {"87"};
+        new GuiClass("", new ArrayList<String>()).showResult(pictures); 
+end;
+//--------------------------------------------------------------------------
+rule "Simpler days"
+	when
+		exists Question(question == "Do you want your tastebuds to sing?", result == "No")
+	then
+		ArrayList<String> options = new ArrayList();
+		options.add("Yes");
+		options.add("No");
+		String question = "Do you long for 'the simpler' days?";
+		GuiClass p1 = new GuiClass(question, options);
+		String resp = p1.gui();
+		insert(new Question(question, options, resp));
+end;
+
+rule "Do you long for 'the simpler' days?- Yes"
+    when
+        exists Question(question == "Do you long for 'the simpler' days?", result == "Yes")
+    then
+        String[] pictures = {"89","90","91","92"};
+        new GuiClass("", new ArrayList<String>()).showResult(pictures); 
+end;
+
+rule "Do you long for 'the simpler' days?- No"
+    when
+        exists Question(question == "Do you long for 'the simpler' days?", result == "No")
+    then
+        String[] pictures = {"88","93","94"};
+        new GuiClass("", new ArrayList<String>()).showResult(pictures); 
+end;
+
+
+
+
